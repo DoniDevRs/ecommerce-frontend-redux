@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import { BsCart3} from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Utilities
 import { auth } from '../../config/firebase.config';
@@ -17,6 +17,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   //const { isAuthenticated } = useContext(UserContext);
+  //const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
   const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
   const { productsCount, toggleCart } = useContext(CartContext);
 
@@ -69,7 +70,3 @@ const Header = () => {
 };
 
 export default Header;
-function useSelector(arg0: (rootReducer: any) => any): { isAuthenticated: any; } {
-  throw new Error('Function not implemented.');
-}
-
