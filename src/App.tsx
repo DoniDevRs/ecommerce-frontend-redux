@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { FunctionComponent, useContext, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getDocs, collection, query, where } from "firebase/firestore";
 
@@ -13,6 +13,7 @@ import ExplorePage from "./components/pages/explore/explore.page";
 import { auth, db } from "./config/firebase.config";
 import { UserContext } from "./contexts/user.context";
 import { userConverter } from "./converters/firestore.converter";
+import { useDispatch, useSelector } from "react-redux";
 
 // Components
 import LoadingComponent from "./components/loading/loading.component";
@@ -26,20 +27,23 @@ const App: FunctionComponent = () => {
 
   const [isInitializing, setIsInitializing] = useState(true);
 
-  const { isAuthenticated, loginUser, logoutUser } = useContext(UserContext);
+  const dispatch = useDispatch();
 
-  onAuthStateChanged(auth, async (user) => {
-    //se o usuario estiver logado no contexto, e o usuario do firebase estiver null (signout)
-    // devemos limpar o contexto (sign out)
+  const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
+
+  //const { isAuthenticated, loginUser, logoutUser } = useContext(UserContext);
+
+  useEffect(() => { 
+    onAuthStateChanged(auth, async (user) => {
     const isSigninOut = isAuthenticated && !user;
     if (isSigninOut) {
-      logoutUser();
+      //logoutUser();
+
+      dispatch({ type: 'LOGOUT_USER' });
 
       return setIsInitializing(false);
     }
 
-    //se o usuario for nulo no contexto, e nao for nulo no firebase
-    //devemos fazer login
     const isSigninIn = !isAuthenticated && user;
     if (isSigninIn) {
       const querySnapshot = await getDocs(
@@ -51,13 +55,16 @@ const App: FunctionComponent = () => {
 
       const userFromFirestore = querySnapshot.docs[0]?.data();
 
-      loginUser(userFromFirestore);
+      //loginUser(userFromFirestore);
+      dispatch({ type: 'LOGIN_USER', payload: userFromFirestore });
 
       return setIsInitializing(false);
     }
 
     return setIsInitializing(false);
   });
+
+  }, [dispatch, isAuthenticated]);
 
   if (isInitializing) return <LoadingComponent />;
 

@@ -2,10 +2,10 @@ import { signOut } from 'firebase/auth';
 import { BsCart3} from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 
 // Utilities
 import { auth } from '../../config/firebase.config';
-import { UserContext } from '../../contexts/user.context';
 
 // Styles
 import { HeaderContainer, HeaderItems, HeaderItem, HeaderTitle } from './header.styles';
@@ -14,7 +14,10 @@ import { CartContext } from '../../contexts/cart.context';
 const Header = () => {
   const navigate = useNavigate();
 
-  const { isAuthenticated } = useContext(UserContext);
+  const dispatch = useDispatch();
+
+  //const { isAuthenticated } = useContext(UserContext);
+  const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
   const { productsCount, toggleCart } = useContext(CartContext);
 
   const handleLogoClick = () => {
@@ -33,6 +36,11 @@ const Header = () => {
     navigate("/explore");
   }
 
+  const handleSignOutClick = () => {
+    dispatch({ type: 'LOGOUT_USER' });
+    signOut(auth);
+  }
+
   return (
     <HeaderContainer>
       <h2>
@@ -48,7 +56,7 @@ const Header = () => {
           )}
 
           {isAuthenticated && (
-            <HeaderItem onClick={() => signOut(auth)}>Sair</HeaderItem>
+            <HeaderItem onClick={handleSignOutClick}>Sair</HeaderItem>
           )
             }
           <HeaderItem onClick={toggleCart}>
@@ -61,3 +69,7 @@ const Header = () => {
 };
 
 export default Header;
+function useSelector(arg0: (rootReducer: any) => any): { isAuthenticated: any; } {
+  throw new Error('Function not implemented.');
+}
+
