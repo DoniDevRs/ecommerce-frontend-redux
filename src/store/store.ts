@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 //import logger from 'redux-logger';
 import { thunk } from 'redux-thunk';
 
@@ -16,10 +17,19 @@ const persistConfig = {
 
 const persistedRootReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(
-  persistedRootReducer as typeof rootReducer,
-  applyMiddleware(thunk)
-);
+// export const store = createStore(
+//   persistedRootReducer as typeof rootReducer,
+//   applyMiddleware(thunk)
+// );
+
+export const store = configureStore({
+  reducer: persistedRootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
+
 export const persistedStore = persistStore(store);
 //const store = createStore(rootReducer, applyMiddleware(logger));
 

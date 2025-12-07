@@ -11,7 +11,6 @@ import ExplorePage from "./components/pages/explore/explore.page";
 
 //Utilities
 import { auth, db } from "./config/firebase.config";
-import { UserContext } from "./contexts/user.context";
 import { userConverter } from "./converters/firestore.converter";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,7 +22,7 @@ import AuthenticationGuard from "./components/guards/authentication.guard";
 import CheckoutPage from "./components/pages/checkout/checkout.page";
 import PaymentConfirmationPage from "./components/pages/payment-confirmation/payment-confirmation-page";
 import UserActionTypes from "./store/reducers/user/user.action-types";
-import { loginUser, logoutUser } from "./store/reducers/user/user.actions";
+import { loginUser, logoutUser } from "./store/toolkit/user/user.slice";
 import useAppSelector from "./components/hooks/redux.hooks";
 
 const App: FunctionComponent = () => {

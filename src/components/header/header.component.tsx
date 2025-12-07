@@ -11,6 +11,7 @@ import useAppSelector from '../hooks/redux.hooks';
 // Styles
 import { HeaderContainer, HeaderItems, HeaderItem, HeaderTitle } from './header.styles';
 import { toggleCart } from '../../store/reducers/cart/cart.actions';
+import { logoutUser } from '../../store/toolkit/user/user.slice';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -41,8 +42,8 @@ const Header = () => {
   }
 
   const handleSignOutClick = () => {
-    //dispatch(logoutUser());
-    dispatch({ type: 'LOGOUT_USER' });
+    dispatch(logoutUser());
+    //dispatch({ type: 'LOGOUT_USER' });
     signOut(auth);
   }
 
