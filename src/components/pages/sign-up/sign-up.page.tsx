@@ -13,7 +13,7 @@ import CustomInput from "../../custom-input/custom-input.component";
 import Header from "../../header/header.component";
 import InputErrorMessage from "../../input-error-message/input-error-message.component";
 
-import { SignUpContainer, SignUpContent, SignUpHeadLine, SignUpInputContainer } from "./sign-up.styles";
+import { SignUpContainer, SignUpContent, SignUpHeadline, SignUpInputContainer } from "./sign-up.styles";
 
 //Utilities
 import { auth, db } from "../../../config/firebase.config";
@@ -83,7 +83,7 @@ const SignUpPage = () => {
          
         <SignUpContainer>
           <SignUpContent>
-            <SignUpHeadLine>Crie sua conta</SignUpHeadLine>
+            <SignUpHeadline>Crie sua conta</SignUpHeadline>
 
             <SignUpInputContainer>
               <p>Nome</p>
