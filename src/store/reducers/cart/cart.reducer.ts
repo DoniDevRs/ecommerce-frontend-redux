@@ -11,7 +11,7 @@ const initialState: InitialState = {
   products: [],
 }
 
-const cartReducer = (state = initialState, action: any) => {
+const cartReducer = (state = initialState, action: any): InitialState => {
   switch (action.type) {
     case CartActionTypes.toggleCart:
       return { ...state, isVisible: !state.isVisible }
