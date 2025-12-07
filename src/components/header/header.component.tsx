@@ -1,16 +1,15 @@
 import { signOut } from 'firebase/auth';
 import { BsCart3} from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Utilities
 import { auth } from '../../config/firebase.config';
+import { selectProductsCount } from '../../store/reducers/cart/cart.selector';
+import useAppSelector from '../hooks/redux.hooks';
 
 // Styles
 import { HeaderContainer, HeaderItems, HeaderItem, HeaderTitle } from './header.styles';
-import { CartContext } from '../../contexts/cart.context';
-import { logoutUser } from '../../store/reducers/user/user.actions';
 import { toggleCart } from '../../store/reducers/cart/cart.actions';
 
 const Header = () => {
@@ -20,9 +19,10 @@ const Header = () => {
 
   //const { isAuthenticated } = useContext(UserContext);
   //const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
-  const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
+  const { isAuthenticated } = useAppSelector((rootReducer) => rootReducer.userReducer);
   //const { productsCount, toggleCart } = useContext(CartContext);
-  const { productsCount } = useContext(CartContext);
+  //onst { productsCount } = useContext(CartContext);
+  const productsCount = useAppSelector(selectProductsCount);
 
   const handleLogoClick = () => {
     navigate("/");
