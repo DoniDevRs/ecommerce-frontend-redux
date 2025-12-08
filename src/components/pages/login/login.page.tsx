@@ -115,7 +115,7 @@ const LoginPage = () => {
 
         <LoginContainer>
           <LoginContent>
-            <LoginHeadline>Sign in to Club Clothing</LoginHeadline>
+            <LoginHeadline>Sign in to Shop Clothing</LoginHeadline>
 
             <CustomButton 
             startIcon={<BsGoogle size={18}/>} 
