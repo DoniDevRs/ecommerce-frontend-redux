@@ -11,7 +11,6 @@ const ExplorePage: FunctionComponent = () => {
             <CategoriesOverview />
         </>
     )
-
 }
 
 export default ExplorePage;

@@ -1,4 +1,10 @@
-import { createContext, FunctionComponent, ReactNode, useEffect, useMemo, useState } from 'react'
+import { 
+  createContext, 
+  FunctionComponent, 
+  ReactNode, 
+  useEffect, 
+  useMemo, 
+  useState } from 'react'
 import CartProduct from '../types/cart.type'
 import Product from '../types/product.types'
 
@@ -13,7 +19,6 @@ interface ICartContext {
   increaseProductQuantity: (productId: string) => void
   decreaseProductQuantity: (productId: string) => void
   clearProducts: () => void
-
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -57,12 +62,10 @@ const CartContextProvider: FunctionComponent<{ children: ReactNode }> = ({ child
   }
 
   const addProductToCart = (product: Product) => {
-    // verificar se o produto já está no carrinho
     const productIsAlreadyInCart = products.some(
       (item) => item.id === product.id
     )
 
-    // se sim -> aumentar sua quantidade
     if (productIsAlreadyInCart) {
       return setProducts((products) =>
         products.map((item) =>
@@ -73,7 +76,6 @@ const CartContextProvider: FunctionComponent<{ children: ReactNode }> = ({ child
       )
     }
 
-    // se não -> adicioná-lo
     setProducts((prevState) => [...prevState, { ...product, quantity: 1 }])
   }
 

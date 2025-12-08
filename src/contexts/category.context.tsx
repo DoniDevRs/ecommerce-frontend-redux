@@ -1,9 +1,10 @@
-import React, { createContext, FunctionComponent, ReactNode, useState } from "react";
-import Category from "../types/category.type";
 import { collection, getDocs } from "firebase/firestore";
+import { createContext, FunctionComponent, ReactNode, useState } from "react";
+
+// Utilities
 import { db } from "../config/firebase.config";
 import { categoryConverter } from "../converters/firestore.converter";
-
+import Category from "../types/category.type";
 interface ICategoryContext {
     categories: Category[];
     isLoading: boolean;
@@ -39,7 +40,6 @@ const CategoryContextProvider: FunctionComponent<{ children: ReactNode }> = ({ c
             setIsLoading(false);
         }
     }
-
 
     return <CategoryContext.Provider value={{ categories, isLoading, fetchCategories }}> { children } </CategoryContext.Provider>
 }

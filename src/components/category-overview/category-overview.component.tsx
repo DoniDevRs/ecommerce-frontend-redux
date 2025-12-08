@@ -1,9 +1,15 @@
 import { FunctionComponent } from "react"
-import Category from "../../types/category.type"
 
 //Styles
-import { CategoryContainer, CategoryTitle, ProductsContainer } from "./category-overview.styles";
+import { 
+    CategoryContainer,
+    CategoryTitle, 
+    ProductsContainer } from "./category-overview.styles";
 
+// Utilities
+import Category from "../../types/category.type"
+
+// Components
 import ProductItem from "../product-item/product-item.component";
 
 interface CategoryOverviewProps {

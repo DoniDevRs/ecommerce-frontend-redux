@@ -1,6 +1,11 @@
-import { FunctionComponent, useContext } from 'react'
+import { FunctionComponent } from 'react'
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
+import {
+  decreaseCartProductQuantity,
+  increaseCartProductQuantity,
+  removeProductFromCart,
+} from "../../store/toolkit/cart/cart.slice";
 
 // Utilities
 import CartProduct from '../../types/cart.type'
@@ -13,9 +18,6 @@ import {
   CartItemQuantity,
   RemoveButton
 } from './cart-item.styles'
-import { decreaseCartProductQuantity, 
-        increaseCartProductQuantity, 
-        removeProductFromCart } from '../../store/toolkit/cart/cart.slice'
 
 interface CartItemProps {
   product: CartProduct

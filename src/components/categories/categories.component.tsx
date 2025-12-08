@@ -1,12 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 //Components
 import CategoryItem from "../category-item/category-item.component";
+import LoadingComponent from "../loading/loading.component";
 
 //Styles
 import { CategoriesContainer, CategoriesContent } from "./categories.styles";
-import LoadingComponent from "../loading/loading.component";
-import { useDispatch } from "react-redux";
+
+// Utilities
 import { fetchCategories } from "../../store/toolkit/category/category.slice";
 import useAppSelector from "../hooks/redux.hooks";
 

@@ -1,8 +1,14 @@
-import { FunctionComponent, useContext } from 'react'
+import { FunctionComponent } from 'react'
 import { BsCartCheck } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 // Utilities
-import { selectProductsCount, selectProductsTotalPrice } from '../../store/reducers/cart/cart.selector'
+import useAppSelector from '../hooks/redux.hooks'
+import { toggleCart } from '../../store/toolkit/cart/cart.slice'
+import { 
+  selectProductsCount, 
+  selectProductsTotalPrice } from '../../store/reducers/cart/cart.selector'
 
 // Components
 import CustomButton from '../custom-button/custom-button.component'
@@ -16,16 +22,10 @@ import {
   CartTitle,
   CartTotal
 } from './cart.styles'
-import { useNavigate } from 'react-router-dom'
-import useAppSelector from '../hooks/redux.hooks'
-import { useDispatch } from 'react-redux'
-import { toggleCart } from '../../store/toolkit/cart/cart.slice'
 
 const Cart: FunctionComponent = () => {
-  const { isVisible, products } = useAppSelector((rootReducer) => rootReducer.cartReducer);
-  //const { isVisible, products, productsTotalPrice, productsCount,toggleCart } = useContext(CartContext)
-  //const { productsTotalPrice, productsCount} = useContext(CartContext)
 
+  const { isVisible, products } = useAppSelector((rootReducer) => rootReducer.cartReducer);
   const productsTotalPrice = useAppSelector(selectProductsTotalPrice);
   const productsCount = useAppSelector(selectProductsCount);
 

@@ -1,18 +1,25 @@
-import { FunctionComponent, useContext, useEffect } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { AiOutlineCheckCircle, AiOutlineCloseCircle, AiOutlineHome } from "react-icons/ai";
-import { clearCartProducts } from "../../../store/toolkit/cart/cart.slice";
 
-//components
+import { 
+  AiOutlineCheckCircle, 
+  AiOutlineCloseCircle, 
+  AiOutlineHome } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+
+//styles
+import {
+  PaymetConfirmationContainer,
+  PaymentConfirmationContent,
+} from "./payment-confirmation.styles";
+
+//Components
 import Header from "../../header/header.component";
 import CustomButton from "../../custom-button/custom-button.component";
 
-//styles
-import { PaymetConfirmationContainer, PaymentConfirmationContent } from "./payment-confirmation.styles";
-
 //Utilities
 import Colors from "../../../theme/theme.colors";
-import { useDispatch } from "react-redux";
+import { clearCartProducts } from "../../../store/toolkit/cart/cart.slice";
 
 const PaymentConfirmationPage: FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -61,8 +68,6 @@ const PaymentConfirmationPage: FunctionComponent = () => {
         </PaymetConfirmationContainer>
       </>
     );
-
-
 }
 
 export default PaymentConfirmationPage;

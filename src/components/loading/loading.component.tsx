@@ -1,7 +1,8 @@
 import { FunctionComponent } from "react"
-import { LoadingContainer } from "./loading.style"
 import { SyncLoader } from "react-spinners";
 
+// Styles
+import { LoadingContainer } from "./loading.style"
 interface LoadingProps {
     message?: string
 }

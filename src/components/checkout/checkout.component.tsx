@@ -1,19 +1,23 @@
-import { FunctionComponent, useContext, useState } from 'react'
+import axios from 'axios'
+import { FunctionComponent, useState } from 'react'
 import { BsBagCheck } from 'react-icons/bs'
 
+// Utilities
+import useAppSelector from '../hooks/redux.hooks'
+import { selectProductsTotalPrice } from '../../store/reducers/cart/cart.selector'
+
+// Components
 import CartItem from '../cart-item/cart-item.component'
 import CustomButton from '../custom-button/custom-button.component'
+import LoadingComponent from '../loading/loading.component'
 
+// Styles
 import {
   CheckoutContainer,
   CheckoutTitle,
   CheckoutProducts,
   CheckoutTotal
 } from './checkout.styles'
-import axios from 'axios'
-import LoadingComponent from '../loading/loading.component'
-import useAppSelector from '../hooks/redux.hooks'
-import { selectProductsTotalPrice } from '../../store/reducers/cart/cart.selector'
 
 const Checkout: FunctionComponent = () => {
   const { products } = useAppSelector(state => state.cartReducer);

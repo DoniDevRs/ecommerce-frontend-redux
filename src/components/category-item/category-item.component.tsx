@@ -1,9 +1,11 @@
 import { FunctionComponent } from "react";
+import { useNavigate } from "react-router-dom";
 
+// Utilities
 import Category from "../../types/category.type";
 
+// Styles
 import { CategoryItemContainer, CategoryName } from "./category-item.style";
-import { useNavigate } from "react-router-dom";
 
 interface CategoryItemProps {
     category: Category;

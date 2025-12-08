@@ -5,24 +5,24 @@ import { useDispatch } from 'react-redux';
 
 // Utilities
 import { auth } from '../../config/firebase.config';
+import { toggleCart } from '../../store/toolkit/cart/cart.slice';
+import { logoutUser } from '../../store/toolkit/user/user.slice';
 import { selectProductsCount } from '../../store/reducers/cart/cart.selector';
 import useAppSelector from '../hooks/redux.hooks';
 
 // Styles
-import { HeaderContainer, HeaderItems, HeaderItem, HeaderTitle } from './header.styles';
-import { toggleCart } from '../../store/toolkit/cart/cart.slice';
-import { logoutUser } from '../../store/toolkit/user/user.slice';
+import { 
+  HeaderContainer, 
+  HeaderItems, 
+  HeaderItem, 
+  HeaderTitle } from './header.styles';
 
 const Header = () => {
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  //const { isAuthenticated } = useContext(UserContext);
-  //const { isAuthenticated } = useSelector((rootReducer: any) => rootReducer.userReducer);
   const { isAuthenticated } = useAppSelector((rootReducer) => rootReducer.userReducer);
-  //const { productsCount, toggleCart } = useContext(CartContext);
-  //onst { productsCount } = useContext(CartContext);
   const productsCount = useAppSelector(selectProductsCount);
 
   const handleLogoClick = () => {
@@ -43,7 +43,6 @@ const Header = () => {
 
   const handleSignOutClick = () => {
     dispatch(logoutUser());
-    //dispatch({ type: 'LOGOUT_USER' });
     signOut(auth);
   }
 

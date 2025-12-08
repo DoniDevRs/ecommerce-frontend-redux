@@ -1,21 +1,23 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { BiChevronLeft } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 // Utilities
-import Category from "../../types/category.type";
 import { db } from "../../config/firebase.config";
 import { categoryConverter } from "../../converters/firestore.converter";
+import Category from "../../types/category.type";
 
 // Components
 import LoadingComponent from "../loading/loading.component";
+import ProductItem from "../product-item/product-item.component";
 
 //Styles
-import { Container, CategoryTitle, IconContainer } from "./category-details.styles";
-import { ProductsContainer } from "./category-details.styles";
-import ProductItem from "../product-item/product-item.component";
-import { useNavigate } from "react-router-dom";
-
+import { 
+  Container, 
+  CategoryTitle, 
+  IconContainer, 
+  ProductsContainer } from "./category-details.styles";
 interface CategoryDetailsProps {
     categoryId: string
 }       
@@ -54,7 +56,7 @@ const CategoryDetails: FunctionComponent<CategoryDetailsProps> = ({ categoryId }
         };
 
         fetchCategory();
-    }, []);
+    }, [categoryId]);
 
     if (isLoading) return <LoadingComponent />
     

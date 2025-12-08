@@ -3,22 +3,31 @@ import { FiLogIn} from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import validator from "validator";
 import { getDocs, collection, query, where, addDoc } from "firebase/firestore";
-import { AuthError, AuthErrorCodes, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { useEffect, useContext, useState } from "react";
+import { 
+  AuthError, 
+  AuthErrorCodes, 
+  signInWithEmailAndPassword, 
+  signInWithPopup } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
 import CustomButton from "../../custom-button/custom-button.component";
 import Header from "../../header/header.component";
 import CustomInput from "../../custom-input/custom-input.component";
+import InputErrorMessage from "../../input-error-message/input-error-message.component";
+import LoadingComponent from "../../loading/loading.component";
 
 // Styles
-import { LoginContainer, LoginHeadline, LoginInputContainer, LoginSubtitle, LoginContent } from "./login.styles";
-import InputErrorMessage from "../../input-error-message/input-error-message.component";
+import { 
+  LoginContainer, 
+  LoginHeadline, 
+  LoginInputContainer, 
+  LoginSubtitle, 
+  LoginContent } from "./login.styles";
 
 //Utilities
 import { auth, db, googleProvider } from "../../../config/firebase.config";
-import LoadingComponent from "../../loading/loading.component";
 import useAppSelector from "../../hooks/redux.hooks";
 interface LoginForm {
     email: string;
@@ -31,10 +40,7 @@ const LoginPage = () => {
             handleSubmit, 
             setError } = useForm<LoginForm>();
 
-    const [isLoading, setIsLoading] = useState(false);        
-
-    //const { isAuthenticated } = useContext(UserContext);  
-
+    const [isLoading, setIsLoading] = useState(false);     
     const { isAuthenticated } = useAppSelector((rootReducer) => rootReducer.userReducer);
 
     const navigate = useNavigate();
@@ -104,7 +110,7 @@ const LoginPage = () => {
     return (
       <>
         <Header />
-
+        
         {isLoading && <LoadingComponent />}
 
         <LoginContainer>

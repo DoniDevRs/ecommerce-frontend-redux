@@ -1,23 +1,30 @@
 import { FiLogIn} from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import validator from "validator";
-import { AuthError, createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
+import { 
+  AuthError, 
+  createUserWithEmailAndPassword, 
+  AuthErrorCodes } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 
 //Components
 import CustomButton from "../../custom-button/custom-button.component";
 import CustomInput from "../../custom-input/custom-input.component";
 import Header from "../../header/header.component";
 import InputErrorMessage from "../../input-error-message/input-error-message.component";
+import LoadingComponent from "../../loading/loading.component";
 
-import { SignUpContainer, SignUpContent, SignUpHeadline, SignUpInputContainer } from "./sign-up.styles";
+// Styles
+import { 
+  SignUpContainer, 
+  SignUpContent, 
+  SignUpHeadline,
+   SignUpInputContainer } from "./sign-up.styles";
 
 //Utilities
 import { auth, db } from "../../../config/firebase.config";
-import LoadingComponent from "../../loading/loading.component";
 import useAppSelector from "../../hooks/redux.hooks";
 
 interface SignUpForm {
@@ -39,7 +46,6 @@ const SignUpPage = () => {
 
     const watchPassword = watch("password");     
     
-    //const { isAuthenticated } = useContext(UserContext);
     const { isAuthenticated } = useAppSelector((rootReducer) => rootReducer.userReducer);
 
     const navigate = useNavigate();

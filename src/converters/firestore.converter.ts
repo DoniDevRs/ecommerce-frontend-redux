@@ -1,4 +1,7 @@
-import { QueryDocumentSnapshot, SnapshotOptions, DocumentData } from "firebase/firestore";
+import { 
+    QueryDocumentSnapshot, 
+    SnapshotOptions, 
+    DocumentData } from "firebase/firestore";
 import Category from "../types/category.type";
 import User from "../types/user.type";
 
