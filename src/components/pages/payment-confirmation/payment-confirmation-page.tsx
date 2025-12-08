@@ -49,21 +49,20 @@ const PaymentConfirmationPage: FunctionComponent = () => {
             {status === "true" && (
               <>
                 <AiOutlineCheckCircle size={120} color={Colors.success} />
-                <p>Sua compra foi finalizada com sucesso.</p>
+                <p>Your purchase has been completed successfully.</p>
               </>
             )}
             {(status === "false" || isCanceled) &&  (
               <>
                 <AiOutlineCloseCircle size={120} color={Colors.error} />
                 <p>
-                  Ocorreu um erro ao finalizar sua compra, Por favor tente
-                  novamente.
+                  An error occurred while completing your purchase, please try again.
                 </p>
               </>
             )}
 
             <CustomButton startIcon={<AiOutlineHome />} onClick={handleGoToHomePageClick}>
-            Ir para a Página Inicial</CustomButton>
+            Go to Home Page</CustomButton>
           </PaymentConfirmationContent>
         </PaymetConfirmationContainer>
       </>

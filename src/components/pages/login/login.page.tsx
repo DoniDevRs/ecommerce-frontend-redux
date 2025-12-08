@@ -110,51 +110,51 @@ const LoginPage = () => {
     return (
       <>
         <Header />
-        
+
         {isLoading && <LoadingComponent />}
 
         <LoginContainer>
           <LoginContent>
-            <LoginHeadline>Entre com a sua conta</LoginHeadline>
+            <LoginHeadline>Sign in to Club Clothing</LoginHeadline>
 
             <CustomButton 
             startIcon={<BsGoogle size={18}/>} 
             onClick={handleSignInWithGooglePress}> 
-            Entrar com o Google 
+            Sign in with Google 
             </CustomButton>
 
-            <LoginSubtitle>Ou entre com seu e-mail</LoginSubtitle>
+            <LoginSubtitle>Or sign in with your email</LoginSubtitle>
 
             <LoginInputContainer> 
-                <p>E-mail</p>
+                <p>Email</p>
                 <CustomInput 
                 hasError={!!errors?.email} 
-                type="email" placeholder="Digite seu e-mail" 
+                type="email" placeholder="Enter your email" 
                 {...register("email", {required: true, validate: (value) => {
                     return validator.isEmail(value);
                 }})} />
 
-                {errors?.email?.type === "required" && (<InputErrorMessage>E-mail é obrigatório</InputErrorMessage>)}
+                {errors?.email?.type === "required" && (<InputErrorMessage>Email is required</InputErrorMessage>)}
 
-                {errors?.email?.type === "notFound" && (<InputErrorMessage>E-mail não encontrado</InputErrorMessage>)}
+                {errors?.email?.type === "notFound" && (<InputErrorMessage>Email not found</InputErrorMessage>)}
 
-                {errors?.email?.type === "validate" && (<InputErrorMessage>E-mail inválido</InputErrorMessage>)}
+                {errors?.email?.type === "validate" && (<InputErrorMessage>Invalid email</InputErrorMessage>)}
 
             </LoginInputContainer>
             <LoginInputContainer> 
-                <p>Senha</p>
+                <p>Password</p>
                 <CustomInput 
                 hasError={!!errors?.password} 
-                type="password" placeholder="Digite sua senha" 
+                type="password" placeholder="Enter your password" 
                 {...register("password", {required: true})} />
 
-            {errors?.password?.type === "required" && (<InputErrorMessage>Senha é obrigatória</InputErrorMessage>)}
+            {errors?.password?.type === "required" && (<InputErrorMessage>Password is required</InputErrorMessage>)}
 
-            {errors?.password?.type === "mismatch" && (<InputErrorMessage>Senha é inválida</InputErrorMessage>)}
+            {errors?.password?.type === "mismatch" && (<InputErrorMessage>Password is invalid</InputErrorMessage>)}
 
             </LoginInputContainer>
 
-             <CustomButton startIcon={<FiLogIn size={18}/>} onClick={() =>handleSubmit(handleSubmitPress)()}> Entrar </CustomButton>
+             <CustomButton startIcon={<FiLogIn size={18}/>} onClick={() =>handleSubmit(handleSubmitPress)()}> Sign In </CustomButton>
           </LoginContent>
         </LoginContainer>
       </>

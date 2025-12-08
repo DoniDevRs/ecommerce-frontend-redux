@@ -22,7 +22,7 @@ const CategoryItem: FunctionComponent<CategoryItemProps> = ( { category }) => {
         <CategoryItemContainer backgroundImage={category.imageUrl} >
             <CategoryName onClick={handleExploreClick}>
                 <p>{category.displayName}</p>
-                <p>Explorar</p>
+                <p>Explore</p>
 
             </CategoryName>
         </CategoryItemContainer>

@@ -45,7 +45,7 @@ const SignUpPage = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const watchPassword = watch("password");     
-    
+
     const { isAuthenticated } = useAppSelector((rootReducer) => rootReducer.userReducer);
 
     const navigate = useNavigate();
@@ -89,41 +89,41 @@ const SignUpPage = () => {
          
         <SignUpContainer>
           <SignUpContent>
-            <SignUpHeadline>Crie sua conta</SignUpHeadline>
+            <SignUpHeadline>Create your account</SignUpHeadline>
 
             <SignUpInputContainer>
-              <p>Nome</p>
+              <p>First Name</p>
               <CustomInput
                 hasError={!!errors?.firstName}
                 type="text"
-                placeholder="Digite seu nome"
+                placeholder="Enter your first name"
                 {...register("firstName", { required: true })}
               />
 
               {errors?.firstName?.type === "required" && 
-              (<InputErrorMessage>Nome é obrigatório</InputErrorMessage>)}
+              (<InputErrorMessage>First name is required</InputErrorMessage>)}
 
             </SignUpInputContainer>
 
             <SignUpInputContainer>
-              <p>Sobrenome</p>
+              <p>Last Name</p>
               <CustomInput
                 hasError={!!errors?.lastName}
                 type="text"
-                placeholder="Digite seu sobrenome"
+                placeholder="Enter your last name"
                 {...register("lastName", { required: true })}
               />
 
                 {errors?.lastName?.type === "required" && 
-                (<InputErrorMessage>Sobrenome é obrigatório</InputErrorMessage>)}
+                (<InputErrorMessage>Last name is required</InputErrorMessage>)}
             </SignUpInputContainer>
 
             <SignUpInputContainer>
-              <p>E-mail</p>
+              <p>Email</p>
               <CustomInput
                 hasError={!!errors?.email}
                 type="text"
-                placeholder="Digite seu e-mail"
+                placeholder="Enter your email"
                 {...register("email", {
                   required: true,
                   validate: (value) => {
@@ -133,58 +133,58 @@ const SignUpPage = () => {
               />
 
                 {errors?.email?.type === "required" && 
-                (<InputErrorMessage>E-mail é obrigatório</InputErrorMessage>)}
+                (<InputErrorMessage>Email is required</InputErrorMessage>)}
 
                 {errors?.email?.type === "alreadyInUse" && 
-                (<InputErrorMessage>E-mail já está em uso</InputErrorMessage>)}
+                (<InputErrorMessage>Email is already in use</InputErrorMessage>)}
 
                 {errors?.email?.type === "validate" && 
-                (<InputErrorMessage>E-mail inválido</InputErrorMessage>)}
+                (<InputErrorMessage>Invalid email</InputErrorMessage>)}
             </SignUpInputContainer>
 
             <SignUpInputContainer>
-              <p>Senha</p>
+              <p>Password</p>
               <CustomInput
                 hasError={!!errors?.password}
                 type="password"
-                placeholder="Digite sua senha"
+                placeholder="Enter your password"
                 {...register("password", { required: true, minLength: 6 })}
               />
 
                 {errors?.password?.type === "required" && 
-                (<InputErrorMessage>Senha é obrigatória</InputErrorMessage>)}
+                (<InputErrorMessage>Password is required</InputErrorMessage>)}
 
                 {errors?.password?.type === "minLength" && 
-                (<InputErrorMessage>Senha deve ter no mínimo 6 caracteres</InputErrorMessage>)}  
+                (<InputErrorMessage>Password must be at least 6 characters</InputErrorMessage>)}  
 
             </SignUpInputContainer>
 
             <SignUpInputContainer>
-              <p>Confirme a senha</p>
+              <p>Confirm Password</p>
               <CustomInput
                 hasError={!!errors?.passwordConfirmation}
                 type="password"
-                placeholder="Digite novamente sua senha"
+                placeholder="Enter your password again"
                 {...register("passwordConfirmation", { required: true, minLength: 6, validate: (value) => {
                     return value === watchPassword;
                 } })}
               />
 
                 {errors?.passwordConfirmation?.type === "required" && 
-                (<InputErrorMessage>Confirmação de senha é obrigatória</InputErrorMessage>)} 
+                (<InputErrorMessage>Password confirmation is required</InputErrorMessage>)} 
 
                 {errors?.passwordConfirmation?.type === "validate" && 
-                (<InputErrorMessage>As senhas não coincidem</InputErrorMessage>)}    
+                (<InputErrorMessage>Passwords do not match</InputErrorMessage>)}    
 
                 {errors?.passwordConfirmation?.type === "minLength" && 
-                (<InputErrorMessage>A confirmação de senha deve ter no mínimo 6 caracteres</InputErrorMessage>)} 
+                (<InputErrorMessage>Password confirmation must be at least 6 characters</InputErrorMessage>)} 
 
             </SignUpInputContainer>
 
             <CustomButton 
                 onClick={() => handleSubmit(handleSubmitPress)()}
                 startIcon={<FiLogIn size={18} />} >
-              Criar conta
+              Create Account
             </CustomButton>
           </SignUpContent>
         </SignUpContainer>

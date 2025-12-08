@@ -23,7 +23,7 @@ const AuthenticationGuard: FunctionComponent<{ children: ReactNode }> = ({ child
     return (
       <>
         <Header />
-        <Loading message="Você precisa estar logado para acessar esta página. Você será redirecionado para a página de login em instantes..." />
+        <Loading message="You need to be logged in to access this page. You will be redirected to the login page shortly..." />
       </>
     )
   }

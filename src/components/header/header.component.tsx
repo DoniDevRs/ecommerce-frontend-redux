@@ -56,16 +56,16 @@ const Header = () => {
         <HeaderTitle onClick={handleLogoClick}>CLUB CLOTHING</HeaderTitle>
       </h2>
         <HeaderItems>
-          <HeaderItem onClick={handleExploreClick}>Explorar</HeaderItem>
+          <HeaderItem onClick={handleExploreClick}>Explore</HeaderItem>
           {!isAuthenticated && (
             <>
             <HeaderItem onClick={handleLoginClick}>Login</HeaderItem>
-            <HeaderItem onClick={handleSignUpClick}>Criar conta</HeaderItem>
+            <HeaderItem onClick={handleSignUpClick}>Create Account</HeaderItem>
             </>
           )}
 
           {isAuthenticated && (
-            <HeaderItem onClick={handleSignOutClick}>Sair</HeaderItem>
+            <HeaderItem onClick={handleSignOutClick}>Sign Out</HeaderItem>
           )
             }
           <HeaderItem onClick={handleCartClick}>

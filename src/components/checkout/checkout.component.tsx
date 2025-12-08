@@ -64,11 +64,11 @@ const Checkout: FunctionComponent = () => {
               startIcon={<BsBagCheck />}
               onClick={handleFinishPurchaseClick}
             >
-              Finalizar Compra
+              Complete Purchase
             </CustomButton>
           </>
         ) : (
-          <p>Seu carrinho está vazio!</p>
+          <p>Your cart is empty!</p>
         )}
       </CheckoutContainer>
     </>
