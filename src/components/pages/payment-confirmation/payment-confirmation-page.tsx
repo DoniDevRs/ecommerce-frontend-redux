@@ -28,7 +28,7 @@ const PaymentConfirmationPage: FunctionComponent = () => {
 
     const navigate = useNavigate();
 
-    const status = searchParams.get("status");
+    const status = searchParams.get("success");
     const isCanceled = searchParams.get("canceled") === "true" ; 
 
     useEffect(() => {  
