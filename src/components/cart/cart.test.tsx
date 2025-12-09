@@ -28,4 +28,16 @@ describe('Cart', () => {
     screen.getByText(/proceed to checkout/i)
   })
 
+  it('should not show checkout button and should show an empty message if cart is empty', () => {
+    renderWithRedux(<Cart />, {
+      preloadedState: {
+        cartReducer: {
+          products: []
+        }
+      } as any
+    })
+
+    screen.getByText(/your cart is empty/i)
+    expect(screen.queryByText(/proceed to checkout/i)).toBeNull()
+  })
 })
