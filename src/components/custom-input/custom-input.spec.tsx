@@ -9,4 +9,11 @@ describe('Custom Input', () => {
     const input = screen.getByPlaceholderText('lorem ipsum')
     expect(input).toHaveStyle({ border: `2px solid ${Colors.error}` })
   })
+
+  it('should render without error if hasError is false', () => {
+    render(<CustomInput placeholder="lorem ipsum" hasError={false} />)
+    const input = screen.getByPlaceholderText('lorem ipsum')
+
+    expect(input).toHaveStyle({ border: 'none' })
+  })
 })
