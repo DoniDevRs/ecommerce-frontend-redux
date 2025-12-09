@@ -26,7 +26,7 @@ const Categories = () => {
             {isLoading && <LoadingComponent />}
 
             <CategoriesContent>
-                {categories.map((category) => 
+                {categories.map((category: any) => 
                <div key={category.id}>
                  <CategoryItem category={category} />
                </div>
