@@ -22,6 +22,7 @@ import {
   CartTitle,
   CartTotal
 } from './cart.styles'
+import CartProduct from '../../types/cart.type'
 
 const Cart: FunctionComponent = () => {
 
@@ -48,7 +49,7 @@ const Cart: FunctionComponent = () => {
       <CartContent>
         <CartTitle>Your Cart</CartTitle>
 
-        {products.map((product) => (
+        {products.map((product: CartProduct) => (
           <CartItem key={product.id} product={product} />
         ))}
 
