@@ -53,7 +53,7 @@ const Checkout: FunctionComponent = () => {
         {products.length > 0 ? (
           <>
             <CheckoutProducts>
-              {products.map((product) => (
+              {products.map((product: any) => (
                 <CartItem key={product.id} product={product} />
               ))}
             </CheckoutProducts>
