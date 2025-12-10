@@ -1,84 +1,159 @@
-**🛍️ Shop Clothing — React E-commerce (Redux + Firebase)**
+# 🛍️ Shop Clothing — React E-commerce (Redux + Firebase)
 
-Shop Clothing is a fully functional React E-commerce application built during my advanced React studies.
-It demonstrates real-world skills such as component architecture, Redux Toolkit, Firebase Authentication, routing with React Router, and clean code practices.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Redux](https://img.shields.io/badge/Redux_Toolkit-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase_Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![React Router](https://img.shields.io/badge/React_Router_DOM-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![RTL](https://img.shields.io/badge/React_Testing_Library-E33332?style=for-the-badge&logo=testinglibrary&logoColor=white)
 
-This project serves as a showcase of my frontend development capabilities and my ability to structure scalable React applications.
+---
 
-**🚀 Technologies Used**  
-   ✔️ React  
-   ✔️ Redux Toolkit  
-   ✔️ Firebase Authentication  
-   ✔️ React Router DOM  
-   ✔️ JavaScript  
-   ✔️ CSS Modules  </br> 
+**Shop Clothing** is a fully functional E-commerce application built with React.  
+It demonstrates real-world concepts such as component architecture, Redux Toolkit, Firebase Authentication, React Router navigation, automated testing, and clean code practices.
 
-**🧠 Key React Concepts Demonstrated**
+---
 
-1️⃣ Advanced Component Architecture: </br>
-  ✔️ Reusable components (product cards, navbar, cart drawer, buttons, category tiles)  
-  ✔️ Clear separation of UI and business logic  
-  ✔️ Reusability and maintainability through props-driven components   </br> 
+## 🚀 Technologies Used
+- **React**
+- **Redux Toolkit**
+- **Firebase Authentication**
+- **React Router DOM**
+- **JavaScript (ES6+)**
+- **CSS Modules**
+- **Jest**
+- **React Testing Library**
 
-2️⃣ Global State Management with Redux Toolkit (Centralized store containing):  </br> 
-   ✔️ Cart items  
-   ✔️ Total price calculation  
-   ✔️ Authenticated user state   
-   ✔️ Store structure includes:  
-   ✔️ cartSlice.js  
-   ✔️ userSlice.js  
-   ✔️ index.js   </br> 
+---
 
-3️⃣ Firebase Authentication:   
-   ✔️ Create Account  
-   ✔️ Login  
-   ✔️ Logout  
-   ✔️ Persistent auth state  
-   ✔️ Redirects based on authentication   </br> 
+## 🧠 Key React Concepts Demonstrated
 
-4️⃣ Navigation with React Router DOM:   
-   ✔️ Public routes  
-   ✔️ Conditional or private routes (if added)  
-   ✔️ Dynamic routing such as:  
-   ✔️ /category/:id   
-   ✔️ /product/:id  
-    
-   ✔️ Hooks used: useNavigate, useParams   </br> 
+### 🔹 1. Advanced Component Architecture
+- Reusable UI components  
+- Clear separation of UI and business logic  
+- Props-driven, maintainable design  
+- Scalable folder structure  
 
-5️⃣ Extensive Use of React Hooks:   
-   ✔️ useState  
-   ✔️ useEffect  
-   ✔️ useSelector  
-   ✔️ useDispatch  
-   ✔️ useNavigate  
-   ✔️ useParams   </br> 
+---
 
-6️⃣ Clean Code & Good Practices:    
-   ✔️ Single-responsibility components  
-   ✔️ Modular folder structure  
-   ✔️ Pure reducer functions  
-   ✔️ Clean and minimal CSS  
-   ✔️ Strong naming conventions  
-   ✔️ Clear separation of logic and presentation   </br> 
+### 🔹 2. Global State Management (Redux Toolkit)
+Handles:
+- Cart items  
+- Total price calculations  
+- Authenticated user state  
 
-🛒 E-commerce Features:   
-   ✔️ Browse categories  
-   ✔️ View products by category  
-   ✔️ Add items to cart  
-   ✔️ Adjust item quantities  
-   ✔️ Remove items  
-   ✔️ View total cost  
-   ✔️ Sidebar cart drawer  
-   ✔️ Firebase authentication  
-   ✔️ Checkout page   </br> 
+Store includes:
+- cartSlice.js  
+- userSlice.js  
+- index.js  
 
-▶️ How to Run the Project:    
-   ✔️ Clone the repository   
-   ✔️ Install dependencies  
-   ✔️ Create a .env file with your Firebase credentials  
-   ✔️ Run the project: npm start   </br> 
+---
 
-**📸 Project Preview (Images)**  
+### 🔹 3. Firebase Authentication
+- Create account  
+- Login  
+- Logout  
+- Persistent sessions  
+- Auth-based redirects  
+
+---
+
+### 🔹 4. Navigation with React Router DOM
+- Public routes  
+- Private/protected routes  
+- Dynamic pages:  
+  - `/category/:id`  
+  - `/product/:id`  
+
+Hooks used: **useNavigate**, **useParams**
+
+---
+
+### 🔹 5. Extensive Use of React Hooks
+- useState  
+- useEffect  
+- useSelector  
+- useDispatch  
+- useNavigate  
+- useParams  
+
+---
+
+### 🔹 6. Clean Code & Best Practices
+- Single-responsibility components  
+- Pure reducer functions  
+- Consistent naming  
+- Organized modules  
+- Minimal CSS  
+
+---
+
+## 🛒 E-commerce Features
+- Browse categories  
+- View products by category  
+- Add items to cart  
+- Increase/decrease item quantities  
+- Remove items  
+- Real-time total calculation  
+- Sidebar cart drawer  
+- Firebase login  
+- Checkout flow  
+
+---
+
+## 🧪 Automated Testing (Jest + RTL)
+
+### ✔️ Redux Store Tests
+- cartSlice  
+- userSlice  
+
+### ✔️ Component Tests
+- Rendering  
+- User interactions  
+- Routing behavior  
+- Mocked Redux store  
+- Mocked Firebase methods  
+
+Testing stack:
+- **Jest**  
+- **React Testing Library**
+
+---
+
+## ▶️ How to Run the Project
+
+### 1️⃣ Clone the repository
+```
+git clone <repository-url>
+```
+
+### 2️⃣ Install dependencies
+```
+npm install
+```
+
+### 3️⃣ Add Firebase credentials
+Create a `.env` file in the project root:
+
+```
+REACT_APP_FIREBASE_API_KEY=your_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_domain
+```
+
+### 4️⃣ Run the app
+```
+npm start
+```
+
+---
+
+## ⭐ Final Notes
+This project is part of my advanced React learning path and showcases production-ready patterns for building scalable, testable, and maintainable web applications.
+
+
+
+## 📸 Project Preview (Images)  
 
 **🏠 01 — Home Page (Products Overview)**  
 
